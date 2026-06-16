@@ -43,3 +43,23 @@ struct Transform {
                 m22 * scale, m32, m03, m13, m23, m33);
   }
 };
+
+class Camera {
+public:
+  float x{}, y{}, z{};
+  Vec3 dir, up, right;
+
+  Mat4 Matrix() const {
+    return Mat4{1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1};
+  }
+};
+
+class Projection {
+public:
+  float near{}, far{};
+  float pov {};
+
+  Mat4 Matrix() const  {
+    
+  }
+};
