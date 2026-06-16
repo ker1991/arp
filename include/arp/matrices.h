@@ -57,9 +57,28 @@ public:
 class Projection {
 public:
   float near{}, far{};
-  float pov {};
+  float fov{};
+  float aspect = 16.0f / 9.0f;
 
-  Mat4 Matrix() const  {
-    
+  Mat4 Matrix() const {
+    float fovRad = fov * 3.14159265359f / 180.0f;
+    float tanHalfFov = tan(fovRad / 2.0f);
+
+    return Mat4{1.0f / (aspect * tanHalfFov),
+                0.0f,
+                0.0f,
+                0.0f,
+                0.0f,
+                1.0f / tanHalfFov,
+                0.0f,
+                0.0f,
+                0.0f,
+                0.0f,
+                -(far + near) / (far - near),
+                -1.0f,
+                0.0f,
+                0.0f,
+                -(2.0f * far * near) / (far - near),
+                0.0f};
   }
 };

@@ -1,16 +1,17 @@
 #pragma once
 
-#include "arp/camera.h"
+#include "arp/matrices.h"
 #include "arp/framebuffer.h"
 #include "arp/math.h"
 
 class Renderer {
 public:
-  Camera &camera;
+  Camera camera;
 
-  Renderer(IFramebuffer &fb, Camera &cam) : fb_(fb), camera(cam) {}
+  Renderer(IFramebuffer &fb) : fb_(fb) {}
   void drawTriangle(Vec3 v1, Vec3 v2, Vec3 v3);
 
 private:
   IFramebuffer &fb_;
+  
 };
