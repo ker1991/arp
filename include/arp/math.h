@@ -3,7 +3,9 @@
 inline constexpr float kPi = 3.141592653589793f;
 
 struct Vec2 {
-  float x, y;
+  float x{}, y{};
+
+  Vec2() = default;
 
   Vec2(float x, float y) {
     this->x = x;
@@ -12,7 +14,9 @@ struct Vec2 {
 };
 
 struct Vec3 {
-  float x, y, z;
+  float x{}, y{}, z{};
+
+  Vec3() = default;
 
   Vec3(float x, float y, float z) {
     this->x = x;
@@ -24,7 +28,9 @@ struct Vec3 {
 };
 
 struct Vec4 {
-  float x, y, z, w;
+  float x{}, y{}, z{}, w{};
+
+  Vec4() = default;
 
   Vec4(float x, float y, float z, float w) {
     this->x = x;
